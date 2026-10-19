@@ -1,0 +1,8 @@
+def find_warmer_day(nums):
+    indices = [0] * len(nums)
+    stackindices = []
+    stacknums = []
+    for i in range(len(nums)):
+        stackindices.append(i)
+        stacknums.append(num)
+        
