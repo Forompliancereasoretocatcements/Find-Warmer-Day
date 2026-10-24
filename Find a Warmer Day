@@ -3,6 +3,20 @@ def find_warmer_day(nums):
     stackindices = []
     stacknums = []
     for i in range(len(nums)):
+        while stacknums != [] and stacknums[-1] < nums[i]:
+            indices[stackindices[-1]] = i - stackindices[-1]
+            stackindices.pop()
+            stacknums.pop()
         stackindices.append(i)
-        stacknums.append(num)
-        
+        stacknums.append(nums[i])
+    return indices
+
+tests = [
+    [73, 74, 75, 71, 69, 72, 76, 73], # [1, 1, 4, 2, 1, 1, 0, 0]
+    [], # []
+    [2], # [0]
+    [4, 4, 8, 7, 6, 8, 5] # [2, 1, 0, 2, 1, 0, 0]
+    ]
+
+for test in tests:
+    print(find_warmer_day(test))
